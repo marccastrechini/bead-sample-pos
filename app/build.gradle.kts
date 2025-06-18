@@ -4,6 +4,7 @@ plugins {
     // Use the SAME version that’s already on the classpath (2.0.21),
     // or omit the version to pick it up automatically:
     id("org.jetbrains.kotlin.plugin.compose")          // ← no version
+    id("kotlin-parcelize")
 }
 
 android {

@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 private const val INTENT_ACTION_PAY = "com.beadpay.wrapper.intent.PAY"
 
 private const val EXTRA_AMOUNT     = "amount"      // Float  extra → dollars
-private const val EXTRA_PAYMENT_ID = "paymentId"   // String extra
-private const val EXTRA_STATUS     = "status"      // String extra
+private const val EXTRA_PAYMENT_ID  = "paymentId"   // String ← wrapper
+private const val EXTRA_STATUS      = "status"      // String ← wrapper
 
 private const val TAG = "SamplePOS"
 /* ──────────────────────────────────────────────────────────────────────────── */
@@ -50,12 +50,12 @@ private fun PayScreen() {
         ActivityResultContracts.StartActivityForResult()
     ) { res: ActivityResult ->
         if (res.resultCode == Activity.RESULT_OK) {
-            val data       = res.data
-            val paymentId  = data?.getStringExtra(EXTRA_PAYMENT_ID) ?: "?"
-            val status     = data?.getStringExtra(EXTRA_STATUS)     ?: "UNKNOWN"
+            val data      = res.data
+            val paymentId = data?.getStringExtra(EXTRA_PAYMENT_ID) ?: "?"
+            val status    = data?.getStringExtra(EXTRA_STATUS)     ?: "UNKNOWN"
 
             Log.d(TAG, "Wrapper returned id=$paymentId status=$status")
-            dialogState = paymentId to status       // triggers result dialog
+            dialogState = paymentId to status          // show dialog
         }
     }
 
