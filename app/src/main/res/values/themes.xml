@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App-specific Material3 theme -->
+    <style name="Theme.BeadSamplePOS" parent="Theme.Material3.Light">
+        <!-- Hide legacy ActionBar / title -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+</resources>
